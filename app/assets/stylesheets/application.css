@@ -57,6 +57,12 @@
         opacity: 1;
     }
 }
+html {
+    -webkit-animation: fadein 0.35s;
+    -moz-animation: fadein 0.35s;
+    -o-animation: fadein 0.35s;
+    animation: fadein 0.35s;
+}
 body {
     background-color: black;
     color: #777;
@@ -65,10 +71,6 @@ body {
     padding: 5px;
     overflow-x: hidden;
     margin: 0 auto;
-    -webkit-animation: fadein 0.5s;
-    -moz-animation: fadein 0.5s;
-    -o-animation: fadein 0.5s;
-    animation: fadein 0.5s;
 }
 nav {
     border-bottom: 1px solid #171717;

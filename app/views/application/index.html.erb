@@ -25,25 +25,23 @@
     <td id="usd">
       <%= @current_price %>$
     </td>
-    <td id="yesterday" class=<%= percent_value(@current_price, @chart_data[:yesterday]).to_f > 0 ? ".high" : ".low" %>>
-      <%= percent_value(@current_price, @chart_data[:yesterday]) %>
+
+    <td id="yesterday" class="<%= percentage_color(percentage_from(:yesterday)) %>">
+      <%= percentage_from(:yesterday) %>
     </td>
-    <td id="weekago">
-      <%= percent_value(@current_price, @chart_data[:week_ago]) %>
+    <td id="weekago" class="<%= percentage_color(percentage_from(:week_ago)) %>">
+      <%= percentage_from(:week_ago) %>
     </td>
-    <td id="monthago">
-      <%= percent_value(@current_price, @chart_data[:month_ago]) %>
+    <td id="monthago" class="<%= percentage_color(percentage_from(:month_ago)) %>">
+      <%= percentage_from(:month_ago) %>
     </td>
 
-    <td id="yearago">
-      <%= percent_value(@current_price, @chart_data[:year_ago]) %>
+    <td id="yearago" class="<%= percentage_color(percentage_from(:year_ago)) %>">
+      <%= percentage_from(:year_ago) %>
     </td>
   </tr>
 </table>
-  <%= line_chart({@date - 1.year => @chart_data[:year_ago], @date - 9.month => @chart_data[:nine_months_ago], @date - 6.month => @chart_data[:half_year_ago], @date - 4.month => @chart_data[:four_months_ago], @date - 3.month => @chart_data[:three_months_ago], @date - 2.month => @chart_data[:two_months_ago], @date - 1.month => @chart_data[:month_ago], @date - 2.week => @chart_data[:two_weeks_ago], @date - 1.week => @chart_data[:week_ago], @date - 1.day => @chart_data[:yesterday], @date => @current_price}) %>
+  <%= line_chart({@date - 6.month => @chart_data[:half_year_ago], @date - 4.month => @chart_data[:four_months_ago], @date - 3.month => @chart_data[:three_months_ago], @date - 2.month => @chart_data[:two_months_ago], @date - 1.month => @chart_data[:month_ago], @date - 2.week => @chart_data[:two_weeks_ago], @date - 1.week => @chart_data[:week_ago], @date => @current_price}) %>
 </section>
-<footer>
-  Updated (60 sec ): <span id="updated">-</span> second ago | Powered by <a href="https://www.coindesk.com/price/bitcoin">CoinDesk</a>
-</footer>
 </body>
 </html>
