@@ -15,6 +15,24 @@ require("chart.js");
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-setInterval(function(){
-    Turbolinks.visit(window.location);
-}, 7000);
+
+window.addEventListener('load', function () {
+    let handler = document.getElementById('sec');
+    let i = 0;
+    setInterval(function () {
+        if (i === 60) {
+            i = 0;
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    const response = JSON.parse(this.response);
+                    document.getElementById('usd').innerHTML = response.today + '$';
+                }
+            };
+            xhttp.open("GET", "api", true);
+            xhttp.send();
+        }
+        i++;
+        handler.innerHTML = i;
+    }, 1000);
+});
