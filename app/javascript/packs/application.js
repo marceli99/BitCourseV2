@@ -20,7 +20,7 @@ window.addEventListener('load', function () {
     let handler = document.getElementById('sec');
     let i = 0;
     setInterval(function () {
-        if (i === 60) {
+        if (i === 30) {
             i = 0;
             const xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
