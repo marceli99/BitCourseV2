@@ -84,7 +84,6 @@ nav div {
 }
 section {
     margin: 0 auto;
-    max-width: 1200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -134,7 +133,7 @@ select {
 }
 table {
     border-collapse: collapse;
-    margin-bottom: 35px;
+    margin-bottom: 100px;
 }
 td {
     font-family: Arial, sans-serif;
