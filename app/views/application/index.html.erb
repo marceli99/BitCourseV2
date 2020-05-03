@@ -41,7 +41,15 @@
     </td>
   </tr>
 </table>
-  <%= area_chart({@date - 6.month => @chart_data[:half_year_ago], @date - 4.month => @chart_data[:four_months_ago], @date - 3.month => @chart_data[:three_months_ago], @date - 2.month => @chart_data[:two_months_ago], @date - 1.month => @chart_data[:month_ago], @date - 2.week => @chart_data[:two_weeks_ago], @date - 1.week => @chart_data[:week_ago], @date => @current_price},
+  <%= area_chart(
+          {
+              @date - 6.month => @chart_data[:half_year_ago],
+              @date - 4.month => @chart_data[:four_months_ago],
+              @date - 3.month => @chart_data[:three_months_ago],
+              @date - 2.month => @chart_data[:two_months_ago],
+              @date - 1.month => @chart_data[:month_ago],
+              @date => @current_price
+          },
       colors: ["#373737"],
                  discrete: true,
                  width: "75%",
